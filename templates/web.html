@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <!-- dataTable -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+  
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+        <script src='{{url_for("static" , filename="/js/event.js")}}'></script>
+
+        <link rel="stylesheet" type="text/css" href="static/css/layout.css">
+        <title> weather </title>
+    </head>
+    <body>
+        
+        <style>
+            body { 
+                background: url('static/img/bac.jpg'); 
+                background-size: cover;
+            }
+        </style>
+
+        <h1>WEATHER</h1>
+        
+        <form action="/sub" method="POST">
+            <label for="num" class="input_num">輸入要查詢的縣市：</label>
+            <input type="text" name="num" placeholder="Enter a number" class="input_num">
+            <button type="submit" class="input_num">Submit</button>
+        </form>
+        <br>
+        <table>
+            <tr>
+                <th class="number_th">--- 編號 ---</th>
+                <th class="area">--- 地區 ---</th>
+                <th class="number_th">--- 編號 ---</th>
+                <th class="area">--- 地區 ---</th>
+                <th class="number_th">--- 編號 ---</th>
+                <th class="area">--- 地區 ---</th>
+                <th class="number_th">--- 編號 ---</th>
+                <th class="area">--- 地區 ---</th>
+                <th class="number_th">--- 編號 ---</th>
+                <th class="area">--- 地區 ---</th>
+            </tr>
+            <tr>
+                <td class="number">1</td>
+                <td class="area">基隆市</td>
+                <td class="number">2</td>
+                <td class="area">台北市</td>
+                <td class="number">3</td>
+                <td class="area">新北市</td>
+                <td class="number">4</td>
+                <td class="area">桃園市</td>
+                <td class="number">5</td>
+                <td class="area">新竹縣</td>
+            </tr>
+            <tr>
+                <td class="number">6</td>
+                <td class="area">新竹市</td>
+                <td class="number">7</td>
+                <td class="area">苗栗縣</td>
+                <td class="number">8</td>
+                <td class="area">台中市</td>
+                <td class="number">9</td>
+                <td class="area">南投縣</td>
+                <td class="number">10</td>
+                <td class="area">彰化縣</td>
+            </tr>
+            <tr>
+                <td class="number">11</td>
+                <td class="area">雲林縣</td>
+                <td class="number">12</td>
+                <td class="area">嘉義縣</td>
+                <td class="number">13</td>
+                <td class="area">嘉義市</td>
+                <td class="number">14</td>
+                <td class="area">台南市</td>
+                <td class="number">15</td>
+                <td class="area">高雄市</td>
+            </tr>
+            <tr>
+                <td class="number">16</td>
+                <td class="area">屏東縣</td>
+                <td class="number">17</td>
+                <td class="area">台東縣</td>
+                <td class="number">18</td>
+                <td class="area">花蓮縣</td>
+                <td class="number">19</td>
+                <td class="area">宜蘭縣</td>
+                <td class="number">20</td>
+                <td class="area">澎湖縣</td>
+            </tr>
+            <tr>
+                <td class="number">21</td>
+                <td class="area">金門縣</td>
+                <td class="number">22</td>
+                <td class="area">連江縣</td>
+            </tr>
+          </table>
+        <br>
+        <form action="/search" method="POST">
+            <label for="num_a" class="input_num">輸入要查詢的區域：</label>
+            <input type="text" name="num_a" placeholder="Enter a number" class="input_num">
+            <button type="submit" class="input_num">Submit</button>
+        </form>
+        
+        <h3 class="input_num">{{ city }}</h3>
+        
+        <ul class="input_num">
+            {% for item in data %}
+            <li class="input_num">{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>{{ text_d | safe }}<br></h2>
+        <h2>{{ text_t | safe }}</h2>
+        <h2>{{ text_tm | safe }}</h2>        
+        
+        {{ plot_html | safe }}
+
+        <div class="con">
+            <table id="myTable" class="display compact hover">
+                <thead>
+                    <tr>
+                        <th width="10px">dates</th>
+                        <th width="20px">temperatures</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 這裡不需要寫入任何初始資料，因為DataTable會動態填充資料 -->
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>

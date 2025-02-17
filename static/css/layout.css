@@ -1,0 +1,36 @@
+table {
+    width: 100;
+}
+
+th {
+    padding: 10px;
+    font-size: larger;
+}
+td {
+    padding: 1px;
+    font-size: larger;
+}
+.number {
+    background-color: rgb(144, 239, 239);
+    font-weight: 900;
+    font-size: 25px;
+}
+.number_th {
+    background-color: rgb(152, 164, 242);
+    font-weight: 900;
+    font-size: 20px;
+}
+.area {
+    background-color: rgb(152, 164, 242);
+    font-weight: 900;
+    font-size: 20px;
+}
+.input_num{
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+}
